@@ -103,7 +103,7 @@ h2 em,h1 em{font-style:italic;color:var(--altin2)}
 @keyframes salla{0%,100%{transform:rotate(var(--r,-6deg)) translateY(0)}50%{transform:rotate(calc(var(--r,-6deg) + 3deg)) translateY(-6px)}}
 .hero .e1{--r:-9deg;left:52%;top:23%}
 .hero .e2{--r:7deg;right:9%;bottom:24%;--g:-2s}
-.hero .e3{--r:-4deg;left:var(--gutter);bottom:15%;--g:-4s}
+.hero .e3{--r:-4deg;left:38%;bottom:17%;--g:-4s}
 
 /* Bant / marquee */
 .bant{position:relative;z-index:5;background:linear-gradient(90deg,#c78a22,#f6d27a,#e6ad35);color:#1a1405;transform:rotate(-2.2deg) scale(1.06);margin:-22px 0 0;
@@ -155,8 +155,8 @@ h2 em,h1 em{font-style:italic;color:var(--altin2)}
 .yatay{overflow:clip}
 .yatay-pin{height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden}
 .yatay-iz{display:flex;align-items:center;gap:clamp(18px,3vw,44px);padding:0 var(--gutter);will-change:transform}
-.yatay-bas{flex:0 0 auto;width:min(520px,82vw);padding-right:2vw}
-.yatay-bas h2{margin-bottom:.4em}
+.yatay-bas{flex:0 0 auto;width:min(640px,86vw);padding-right:2vw;scroll-snap-align:start}
+.yatay-bas h2{margin-bottom:.4em;font-size:clamp(2.3rem,5.2vw,4.8rem)}
 .yatay-bas p{color:var(--soluk);max-width:36ch}
 .yatay-bas .ok{margin-top:1.6em;display:inline-flex;align-items:center;gap:.8em;color:var(--altin2);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase}
 .yatay-bas .ok i{width:60px;height:1px;background:currentColor;position:relative}
@@ -322,6 +322,6 @@ footer a{text-decoration:none;color:var(--altin2)}
   .hero .daire{width:108px;right:var(--gutter);top:94px}
   .hero .e1{left:var(--gutter);top:104px}
   .hero .e2{right:6%;bottom:21%}
-  .hero .e3{bottom:13%}
+  .hero .e3{left:var(--gutter);bottom:13%}
   .hero-ic{margin-top:40px}
 }

@@ -185,7 +185,7 @@
         const qx = iz[k], qy = iz[k + 1], sx = qx - px, sy = qy - py, l = Math.sqrt(sx * sx + sy * sy);
         for (let u = 3; u <= l && yol + u < boy; u += 3) {
           const t = (yol + u) / boy;
-          ekle(px + sx * u / l, py + sy * u / l, d.r * (0.72 - t * 0.6), 0.9);
+          ekle(px + sx * u / l, py + sy * u / l, d.r * (0.6 - t * 0.48), 0.9);
         }
         yol += l; px = qx; py = qy;
       }
@@ -193,7 +193,16 @@
     for (const s of sicrama) ekle(s.x, s.y, s.r, 1);
     for (const a of akislar) {
       if (a.acik) ekle(a.x, 4, 9, 1);
-      for (const q of a.parca) ekle(q.x, q.y, q.r, 1);
+      // ardışık parçaların arası doldurulur → kesintisiz ip
+      const ps = a.parca;
+      for (let i = 0; i < ps.length; i++) {
+        const q = ps[i]; ekle(q.x, q.y, q.r, 1);
+        const o = ps[i - 1];
+        if (!o) continue;
+        const sx = o.x - q.x, sy = o.y - q.y, l = Math.sqrt(sx * sx + sy * sy);
+        if (l > 70) continue;
+        for (let u = 3; u < l; u += 3) ekle(q.x + sx * u / l, q.y + sy * u / l, q.r * 0.85, 1);
+      }
     }
     if (imlec.r > 0.5) ekle(imlec.x, imlec.y, imlec.r, 0.95);
     // Havuz alanı: yüzeyin altı dolu, yüzey çevresinde yumuşak geçiş
@@ -242,8 +251,8 @@
         // kenarda ince parlak çizgi (Fresnel benzeri)
         const kenar = 1 - nz; r += kenar * 40; g += kenar * 28;
         d[p] = r > 255 ? 255 : r; d[p + 1] = g > 255 ? 255 : g; d[p + 2] = b > 255 ? 255 : b;
-        const a = (v - ESIK) / 0.07;
-        d[p + 3] = a >= 1 ? 245 : 70 + a * 175;
+        const a = (v - ESIK) / 0.16;
+        d[p + 3] = a >= 1 ? 245 : 80 + a * 165;
       }
     }
   }
