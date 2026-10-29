@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beylerbeyi Zeytinliği — Beyler Köyü, Seferihisar</title>
+<meta name="description" content="Beylerbeyi Zeytinliği: Seferihisar Beyler Köyü'nde kadim zeytin ağaçlarından doğal zeytinyağı. Her gün 09:00–17:00.">
+<meta property="og:title" content="Beylerbeyi Zeytinliği">
+<meta property="og:description" content="Geçmişe borçlu, geleceğe sorumluyuz… Beyler Köyü, Seferihisar / İzmir">
+<meta property="og:image" content="img/z16.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --zeytin:#4a5a2a; --zeytin-koyu:#2f3a1a; --yaprak:#8a9a5b; --toprak:#a6773f;
+  --krem:#f7f3e9; --kagit:#fffdf7; --yazi:#2a2a22; --soluk:#6b6a5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--yazi);background:var(--krem);line-height:1.65}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.15}
+h2{font-size:clamp(2rem,4vw,2.8rem);color:var(--zeytin-koyu);margin-bottom:.6em}
+.ust{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--toprak);font-weight:600;margin-bottom:.8em}
+
+/* Menü */
+nav{position:fixed;inset:0 0 auto 0;z-index:10;transition:background .3s}
+nav.dolu{background:rgba(47,58,26,.94);backdrop-filter:blur(6px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+nav .logo{font-family:"Cormorant Garamond",serif;font-size:1.45rem;color:#fff;text-decoration:none;font-weight:600}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{color:#fff;text-decoration:none;font-size:.92rem;opacity:.9}
+nav ul a:hover{opacity:1}
+@media(max-width:720px){nav ul{display:none}}
+
+/* Giriş */
+.hero{min-height:100vh;display:flex;align-items:flex-end;color:#fff;
+  background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.05) 40%,rgba(30,36,15,.78) 100%),url(img/z16.jpg) center/cover}
+.hero .wrap{padding-bottom:12vh}
+.hero h1{font-size:clamp(3rem,9vw,6.2rem);font-weight:600}
+.hero .slogan{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.3rem,3vw,1.9rem);margin:.3em 0 1.4em;opacity:.95}
+.hero .yer{font-size:.95rem;letter-spacing:.06em;opacity:.9}
+.dugme{display:inline-block;background:var(--krem);color:var(--zeytin-koyu);padding:14px 26px;border-radius:40px;
+  text-decoration:none;font-weight:600;margin-top:1.6em;margin-right:10px}
+.dugme.cizgi{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.8)}
+
+section{padding:96px 0}
+
+/* Hikaye */
+.hikaye .izgara{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hikaye p{font-size:1.08rem;color:#3d3c32;margin-bottom:1.1em}
+.hikaye .resimler{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hikaye .resimler img{border-radius:14px;height:420px;width:100%;object-fit:cover}
+.hikaye .resimler img:last-child{margin-top:56px}
+@media(max-width:860px){.hikaye .izgara{grid-template-columns:1fr}.hikaye .resimler img{height:300px}}
+
+/* Değerler */
+.degerler{background:var(--zeytin-koyu);color:#eef0e2}
+.degerler h2{color:#fff}
+.kartlar{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
+.kart{border-top:1px solid rgba(255,255,255,.25);padding-top:22px}
+.kart h3{font-size:1.6rem;color:#fff;margin-bottom:.35em}
+.kart p{opacity:.85}
+@media(max-width:760px){.kartlar{grid-template-columns:1fr}}
+
+/* Video */
+.video{background:var(--kagit)}
+.video .izgara{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.video video{border-radius:16px;width:100%;max-height:640px;object-fit:cover;background:#111}
+@media(max-width:860px){.video .izgara{grid-template-columns:1fr}}
+
+/* Galeri */
+.galeri .izgara{columns:3 260px;column-gap:14px}
+.galeri img{width:100%;border-radius:12px;margin-bottom:14px;break-inside:avoid;cursor:zoom-in;transition:opacity .2s}
+.galeri img:hover{opacity:.9}
+.kutu{position:fixed;inset:0;background:rgba(15,18,8,.94);display:none;align-items:center;justify-content:center;z-index:20;padding:20px}
+.kutu.acik{display:flex}
+.kutu img{max-height:92vh;border-radius:8px}
+
+/* Yorumlar */
+.yorumlar{background:var(--kagit)}
+.yildiz{color:#c99a2e;font-size:1.25rem;letter-spacing:2px}
+.puan{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.puan b{font-family:"Cormorant Garamond",serif;font-size:3rem;color:var(--zeytin-koyu)}
+.yorum-liste{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.yorum{background:var(--krem);border-radius:16px;padding:28px}
+.yorum q{display:block;font-family:"Cormorant Garamond",serif;font-size:1.45rem;line-height:1.35;margin:.4em 0 .8em;quotes:"“" "”"}
+.yorum span{color:var(--soluk);font-size:.9rem}
+@media(max-width:760px){.yorum-liste{grid-template-columns:1fr}}
+
+/* Ziyaret */
+.ziyaret .izgara{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+.bilgi dt{font-weight:600;color:var(--zeytin);margin-top:1.1em;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase}
+.bilgi dd{font-size:1.1rem}
+.harita{border:0;width:100%;height:100%;min-height:380px;border-radius:16px}
+@media(max-width:860px){.ziyaret .izgara{grid-template-columns:1fr}}
+
+footer{background:var(--zeytin-koyu);color:#d9dcc8;padding:40px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<nav id="menu">
+  <div class="wrap">
+    <a class="logo" href="#">Beylerbeyi Zeytinliği</a>
+    <ul>
+      <li><a href="#hikaye">Hikayemiz</a></li>
+      <li><a href="#galeri">Zeytinlik</a></li>
+      <li><a href="#yorumlar">Yorumlar</a></li>
+      <li><a href="#ziyaret">Ziyaret</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="yer">🫒 Beyler Köyü · Seferihisar · İzmir</p>
+    <h1>Beylerbeyi<br>Zeytinliği</h1>
+    <p class="slogan">“Geçmişe borçlu, geleceğe sorumluyuz…”</p>
+    <a class="dugme" href="tel:+905322147356">Ara: 0532 214 73 56</a>
+    <a class="dugme cizgi" href="#ziyaret">Yol tarifi</a>
+  </div>
+</header>
+
+<section id="hikaye" class="hikaye">
+  <div class="wrap izgara">
+    <div>
+      <p class="ust">Hikayemiz</p>
+      <h2>Kadim ağaçların gölgesinde</h2>
+      <p>Seferihisar'ın tepelerinde, Beyler Köyü'nün yamaçlarında asırlık zeytin ağaçlarımız yaşıyor. Gövdeleri zamanın izlerini taşıyan bu kadim ağaçlar, bize bu topraklardan emanet.</p>
+      <p>Biz onlara özenle bakıyor, meyvelerini emek vererek topluyor ve sofranıza doğal zeytinyağı olarak getiriyoruz.</p>
+      <p><em>Zeytinin çok büyük yaşama sevinci var.</em> Doğa, huzur, sağlık — hepsi bir damlada.</p>
+    </div>
+    <div class="resimler">
+      <img src="img/z15.jpg" alt="Kadim zeytin ağacının gövdesi" loading="lazy">
+      <img src="img/z32.jpg" alt="Asırlık zeytin ağacı" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="degerler">
+  <div class="wrap">
+    <p class="ust" style="color:#c9b98a">Neden Beylerbeyi?</p>
+    <h2>Topraktan sofraya</h2>
+    <div class="kartlar">
+      <div class="kart"><h3>Kadim ağaçlar</h3><p>Seferihisar'ın asırlık zeytin ağaçlarından, doğanın içinden.</p></div>
+      <div class="kart"><h3>Doğal ve temiz</h3><p>Emek ve özenle üretilen, katkısız zeytinyağı.</p></div>
+      <div class="kart"><h3>Gelin, görün</h3><p>Zeytinliğimiz her gün 09:00–17:00 arası ziyarete açık.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="video">
+  <div class="wrap izgara">
+    <video src="img/bahar.mp4" poster="img/bahar.jpg" autoplay muted loop playsinline></video>
+    <div>
+      <p class="ust">Bahar bizimle</p>
+      <h2>Beylerbeyi'nde bahara yolculuk</h2>
+      <p>İlkbaharda zeytinliğimiz yeşile bürünür, dere akar, lavantalar açar. Mevsimlerin her biri ağaçlarımıza ayrı bir güzellik katar.</p>
+      <a class="dugme" style="background:var(--zeytin);color:#fff" href="https://www.instagram.com/beylerbeyizeytinligi/" target="_blank" rel="noopener">Instagram'da takip et</a>
+    </div>
+  </div>
+</section>
+
+<section id="galeri" class="galeri">
+  <div class="wrap">
+    <p class="ust">Zeytinlik</p>
+    <h2>Zeytinliğimizden kareler</h2>
+    <div class="izgara">
+      <img src="img/z24.jpg" alt="Zeytin ağacı" loading="lazy">
+      <img src="img/z44.jpg" alt="Zeytinlik" loading="lazy">
+      <img src="img/z38.jpg" alt="Dalda zeytinler" loading="lazy">
+      <img src="img/z17.jpg" alt="Zeytin ağaçları arasında yol" loading="lazy">
+      <img src="img/z21.jpg" alt="Tepedeki zeytin ağacı" loading="lazy">
+      <img src="img/z11.jpg" alt="Zeytin yaprakları" loading="lazy">
+      <img src="img/z26.jpg" alt="Zeytinlikte patika" loading="lazy">
+      <img src="img/z08.jpg" alt="Lavantalar ve zeytin" loading="lazy">
+      <img src="img/z48.jpg" alt="Zeytinlik genel görünüm" loading="lazy">
+      <img src="img/z13.jpg" alt="Zeytin ağacı gövdesi" loading="lazy">
+      <img src="img/z39.jpg" alt="Zeytinlikte yol" loading="lazy">
+      <img src="img/z30.jpg" alt="Yaşlı zeytin ağaçları" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="yorumlar" class="yorumlar">
+  <div class="wrap">
+    <p class="ust">Yorumlar</p>
+    <h2>Misafirlerimiz ne diyor?</h2>
+    <div class="puan"><b>5,0</b><div><div class="yildiz">★★★★★</div><span style="color:var(--soluk)">Google'da 7 yorum</span></div></div>
+    <div class="yorum-liste">
+      <div class="yorum"><div class="yildiz">★★★★★</div><q>Doğal, tertemiz ve gerçekten çok kaliteli zeytinyağı. Beylerbeyi Zeytinliği’nde emeğin ve özenin farkı hemen hissediliyor. Gönül rahatlığıyla tavsiye ederim.</q><span>Nazım K. · Google</span></div>
+      <div class="yorum"><div class="yildiz">★★★★★</div><q>Mükemmel bir yer.</q><span>Hakan G. · Google</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ziyaret" class="ziyaret">
+  <div class="wrap izgara">
+    <div>
+      <p class="ust">Ziyaret</p>
+      <h2>Bizi ziyaret edin</h2>
+      <dl class="bilgi">
+        <dt>Adres</dt><dd>Beyler Köyü, 35460 Seferihisar / İzmir</dd>
+        <dt>Telefon</dt><dd><a href="tel:+905322147356">0532 214 73 56</a></dd>
+        <dt>Açık</dt><dd>Her gün 09:00 – 17:00</dd>
+        <dt>Ödeme</dt><dd>Nakit</dd>
+        <dt>Otopark</dt><dd>Ücretsiz</dd>
+      </dl>
+      <a class="dugme" style="background:var(--zeytin);color:#fff" href="https://maps.app.goo.gl/pZHByjKUniFQ4QPY7" target="_blank" rel="noopener">Google Haritalar'da aç</a>
+    </div>
+    <iframe class="harita" loading="lazy" title="Harita"
+      src="https://www.google.com/maps?q=38.2152985,26.9211948&z=14&output=embed"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Beylerbeyi Zeytinliği · Beyler Köyü, Seferihisar</span>
+    <a href="https://www.instagram.com/beylerbeyizeytinligi/" target="_blank" rel="noopener">@beylerbeyizeytinligi</a>
+  </div>
+</footer>
+
+<div class="kutu" id="kutu"><img alt=""></div>
+
+<script>
+const menu=document.getElementById('menu');
+const ayarla=()=>menu.classList.toggle('dolu',scrollY>80);
+addEventListener('scroll',ayarla);ayarla();
+const kutu=document.getElementById('kutu');
+document.querySelectorAll('.galeri img').forEach(i=>i.onclick=()=>{kutu.firstElementChild.src=i.src;kutu.classList.add('acik')});
+kutu.onclick=()=>kutu.classList.remove('acik');
+</script>
+</body>
+</html>
