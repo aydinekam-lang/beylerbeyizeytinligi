@@ -92,6 +92,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 .daire svg.yazi{width:100%;height:100%;animation:don 22s linear infinite}
 .daire text{font-family:var(--sans);font-size:9.6px;letter-spacing:2.2px;text-transform:uppercase;fill:var(--altin2);font-weight:600}
 .daire .dal{position:absolute;inset:26%;filter:drop-shadow(0 0 18px rgba(230,173,53,.6))}
+.daire img.logo-ic{inset:19%;width:62%;height:62%;border-radius:50%;filter:drop-shadow(0 0 14px rgba(230,173,53,.45))}
 .daire::before{content:"";position:absolute;inset:16%;border-radius:50%;background:radial-gradient(circle,rgba(230,173,53,.18),transparent 70%);box-shadow:0 0 0 1px rgba(246,210,122,.25) inset}
 @keyframes don{to{transform:rotate(360deg)}}
 .hero .daire{right:7vw;top:18vh}
