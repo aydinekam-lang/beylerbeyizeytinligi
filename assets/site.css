@@ -11,7 +11,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);background:var(--gece);color:var(--krem);line-height:1.65;overflow-x:clip}
+html{background:var(--gece)}
+body{font-family:var(--sans);background:transparent;color:var(--krem);line-height:1.65;overflow-x:clip}
 img,video,svg{display:block;max-width:100%}
 a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -80,7 +81,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 .hero .slogan{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.6vw,2rem);margin:1.4rem 0 2rem;max-width:30ch;opacity:.95;text-shadow:0 2px 20px rgba(0,0,0,.7)}
 .hero .dugmeler{display:flex;flex-wrap:wrap;gap:12px}
 .hero .harf{display:inline-block;transform:translateY(105%);opacity:0;animation:harf 1.1s cubic-bezier(.2,.8,.2,1) forwards}
-.hero .satir{display:block;overflow:hidden;padding-bottom:.06em}
+.hero .satir{display:block;overflow:hidden;padding:.16em .12em .26em 0;margin:-.16em 0 -.26em}
 @keyframes harf{to{transform:none;opacity:1}}
 .asagi{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--altin2);
   display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none}
@@ -104,9 +105,9 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 .etiket.koyu{background:#1c2210;color:var(--altin2);box-shadow:0 0 0 1.5px var(--altin) inset,0 8px 30px -10px rgba(0,0,0,.8)}
 .etiket.yesil{background:var(--yaprak);color:#141a08}
 @keyframes salla{0%,100%{transform:rotate(var(--r,-6deg)) translateY(0)}50%{transform:rotate(calc(var(--r,-6deg) + 3deg)) translateY(-6px)}}
-.hero .e1{--r:-9deg;left:52%;top:23%}
+.hero .e1{--r:-9deg;left:auto;right:24%;top:46%}
 .hero .e2{--r:7deg;right:9%;bottom:24%;--g:-2s}
-.hero .e3{--r:-4deg;left:38%;bottom:17%;--g:-4s}
+.hero .e3{--r:-4deg;left:auto;right:33%;bottom:22%;--g:-4s}
 
 /* Bant / marquee */
 .bant{position:relative;z-index:5;background:linear-gradient(90deg,#c78a22,#f6d27a,#e6ad35);color:#1a1405;transform:rotate(-2.2deg) scale(1.06);margin:-22px 0 0;
@@ -141,7 +142,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 .maske.gorundu img{transform:scale(1)}
 .belir{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s cubic-bezier(.2,.8,.2,1)}
 .belir.gorundu{opacity:1;transform:none}
-.kelime{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.kelime{display:inline-block;overflow:hidden;vertical-align:top;padding:.12em .08em .22em 0;margin:-.12em -.08em -.22em 0}
 .kelime>span{display:inline-block;transform:translateY(110%);transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*60ms)}
 .gorundu .kelime>span{transform:none}
 
@@ -206,7 +207,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 @media(max-width:860px){.kartlar{grid-template-columns:1fr}}
 
 /* Mevsimler */
-.mevsimler{padding:clamp(90px,12vw,160px) 0;background:linear-gradient(180deg,var(--gece),var(--gece2) 30%,var(--gece2) 70%,var(--gece));overflow:clip}
+.mevsimler{padding:clamp(90px,12vw,160px) 0;background:linear-gradient(180deg,transparent,rgba(18,21,12,.55) 30%,rgba(18,21,12,.55) 70%,transparent);overflow:clip}
 .mevsimler .ust-yazi{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
 .mevsimler .ust-yazi p{max-width:44ch;color:#cfc9b4}
 .videolar{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,60px);max-width:980px;margin:0 auto}
@@ -266,7 +267,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 @media(max-width:860px){.yorum-liste{grid-template-columns:1fr}}
 
 /* Ziyaret */
-.ziyaret{padding:clamp(90px,12vw,150px) 0;background:linear-gradient(180deg,var(--gece),var(--gece2));overflow:clip}
+.ziyaret{padding:clamp(90px,12vw,150px) 0;background:linear-gradient(180deg,transparent,rgba(18,21,12,.6));overflow:clip}
 .ziyaret .izgara{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,5vw,70px);align-items:stretch}
 .bilgi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:36px 0}
 .bilgi div{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.04);box-shadow:0 0 0 1px var(--cizgi) inset}
@@ -295,7 +296,7 @@ footer a{text-decoration:none;color:var(--altin2)}
 #belge{position:relative;overflow-x:clip}
 
 /* Yüzen yapraklar */
-.yapraklar{position:fixed;inset:0;pointer-events:none;z-index:7;overflow:hidden}
+.yapraklar{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
 .yapraklar svg{position:absolute;width:var(--w,70px);height:auto;opacity:.9;filter:drop-shadow(0 10px 18px rgba(0,0,0,.5))}
 
 /* Işık kutusu */
@@ -330,7 +331,7 @@ footer a{text-decoration:none;color:var(--altin2)}
 }
 
 /* Erken hasat */
-.erken-hasat{padding:clamp(90px,12vw,170px) 0;background:radial-gradient(60% 50% at 75% 50%,rgba(143,169,58,.12),transparent 70%),var(--gece);overflow:clip}
+.erken-hasat{padding:clamp(90px,12vw,170px) 0;background:radial-gradient(60% 50% at 75% 50%,rgba(143,169,58,.12),transparent 70%);overflow:clip}
 .erken-hasat .izgara{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
 .erken-hasat h2 em{color:#c9d65a}
 .eh-giris{color:#cfc9b4;max-width:46ch;margin:1.2em 0 2em}
@@ -381,3 +382,20 @@ footer a{text-decoration:none;color:var(--altin2)}
 .eh-dal g.zy1{animation-delay:-2.2s}
 .eh-damla2{animation-delay:-1.8s !important}
 .eh-cizim{filter:drop-shadow(0 30px 60px rgba(201,214,90,.18))}
+/* Harf kesilmesin: degrade yazının boyama alanı alt kuyrukları ve noktaları da kapsasın */
+.hero h1 .kelime-h{display:inline-block;padding:.14em .14em .28em 0;margin:-.14em -.14em -.28em 0}
+.eh-baslik em,.eh-baslik em .kelime>span{padding:.1em .1em .24em 0;margin:-.1em -.1em -.24em 0}
+
+/* Arka plan: yarı saydam zeytinlik, dal deseni, yağ ışıltısı — düz siyah değil */
+body::before,body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2}
+body::before{background:
+  radial-gradient(55% 45% at 85% 15%,rgba(230,173,53,.10),transparent 70%),
+  radial-gradient(50% 50% at 10% 85%,rgba(143,169,58,.12),transparent 70%),
+  linear-gradient(180deg,rgba(11,13,7,.78),rgba(11,13,7,.9)),
+  url(../img/z16.jpg) center/cover no-repeat;
+  filter:saturate(.75) blur(2px);transform:scale(1.03)}
+body::after{background:url(arka-dal.svg) 0 0/420px 420px repeat;opacity:.9;animation:arka-kay 120s linear infinite}
+@keyframes arka-kay{to{background-position:420px -420px}}
+@media(prefers-reduced-motion:reduce){body::after{animation:none}}
+@media(max-width:1100px) and (min-width:861px){.hero .e1,.hero .e3{display:none}}
+@media(max-width:860px){.hero .e1,.hero .e2,.hero .e3{display:none}}
