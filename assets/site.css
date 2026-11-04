@@ -210,7 +210,7 @@ footer .alt-logo{display:block;width:clamp(120px,16vw,170px);height:auto;margin:
 .mevsimler{padding:clamp(90px,12vw,160px) 0;background:linear-gradient(180deg,transparent,rgba(18,21,12,.55) 30%,rgba(18,21,12,.55) 70%,transparent);overflow:clip}
 .mevsimler .ust-yazi{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,6vw,80px)}
 .mevsimler .ust-yazi p{max-width:44ch;color:#cfc9b4}
-.videolar{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,60px);max-width:980px;margin:0 auto}
+.videolar{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,3vw,44px);max-width:1180px;margin:0 auto}
 .mevsim{position:relative}
 .mevsim:nth-child(2){margin-top:clamp(40px,10vw,140px)}
 .mevsim .kutu-v{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;box-shadow:0 0 0 1px rgba(246,210,122,.25),0 40px 100px -40px rgba(230,173,53,.5)}
@@ -399,3 +399,22 @@ body::after{background:url(arka-dal.svg) 0 0/420px 420px repeat;opacity:.9;anima
 @media(prefers-reduced-motion:reduce){body::after{animation:none}}
 @media(max-width:1100px) and (min-width:861px){.hero .e1,.hero .e3{display:none}}
 @media(max-width:860px){.hero .e1,.hero .e2,.hero .e3{display:none}}
+
+/* Mehmet 04.11.2026: akan yağ kaldırıldı */
+.yag-yol,#yag{display:none!important}
+
+/* Erken hasat — gerçek görüntüler (Mehmet 04.11.2026) */
+.eh-video{aspect-ratio:9/16;max-width:400px;margin:0 auto;border-radius:28px;overflow:hidden;box-shadow:0 0 0 1px rgba(201,214,90,.35),0 50px 120px -40px rgba(201,214,90,.55)}
+.eh-video video{width:100%;height:100%;object-fit:cover;background:#111}
+.eh-gorsel .etiket{top:6%;right:auto;left:4%}
+.eh-serit{grid-column:1/-1;margin-top:clamp(40px,6vw,80px)}
+.eh-kartlar{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px)}
+.eh-kartlar figure{position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px rgba(201,214,90,.2)}
+.eh-kartlar figure:nth-child(even){transform:translateY(28px)}
+.eh-kartlar figure.belir.gorundu:nth-child(even){transform:translateY(28px)}
+.eh-kartlar video{width:100%;height:100%;object-fit:cover;background:#111}
+.eh-kartlar figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.75));font-family:var(--serif);font-size:clamp(.95rem,1.4vw,1.15rem);color:var(--krem);display:flex;gap:.5em;align-items:baseline}
+.eh-kartlar figcaption span{font-family:var(--sans);font-size:.72rem;color:#c9d65a;letter-spacing:.1em}
+@media(max-width:860px){.eh-kartlar{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:36px}.eh-kartlar figure{scroll-snap-align:start}}
+@media(max-width:860px){.videolar{grid-template-columns:1fr;max-width:420px}.mevsim:nth-child(n){margin-top:30px}}
+.mevsim:nth-child(3){margin-top:clamp(20px,5vw,70px)}
