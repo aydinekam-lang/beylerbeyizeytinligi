@@ -328,3 +328,27 @@ footer a{text-decoration:none;color:var(--altin2)}
   .hero .e3{left:var(--gutter);bottom:13%}
   .hero-ic{margin-top:40px}
 }
+
+/* Erken hasat */
+.erken-hasat{padding:clamp(90px,12vw,170px) 0;background:radial-gradient(60% 50% at 75% 50%,rgba(143,169,58,.12),transparent 70%),var(--gece);overflow:clip}
+.erken-hasat .izgara{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.erken-hasat h2 em{color:#c9d65a}
+.eh-giris{color:#cfc9b4;max-width:46ch;margin:1.2em 0 2em}
+.eh-adimlar{list-style:none;display:grid;gap:22px;margin-bottom:2.2em}
+.eh-adimlar li{display:flex;gap:18px;align-items:flex-start;padding-top:18px;border-top:1px solid var(--cizgi)}
+.eh-adimlar span{font-family:var(--serif);font-size:1.1rem;color:#c9d65a;min-width:2.2em}
+.eh-adimlar h3{font-size:clamp(1.3rem,2.2vw,1.7rem);margin-bottom:.25em}
+.eh-adimlar p{color:var(--soluk);max-width:42ch}
+.eh-gorsel{position:relative}
+.eh-cizim{width:100%;height:auto;max-width:560px;margin:0 auto;overflow:visible}
+.eh-gorsel .etiket{top:8%;right:4%}
+.eh-dal{transform-origin:0 70px;animation:eh-sallan 7s ease-in-out infinite}
+.eh-dal .zy1{transform-box:fill-box;transform-origin:50% 0;animation:eh-zy 4.5s ease-in-out infinite}
+.eh-damla{transform-box:fill-box;transform-origin:50% 0;animation:eh-damla 3.6s cubic-bezier(.55,0,.8,.4) infinite}
+.eh-halka{transform-box:fill-box;transform-origin:50% 50%;opacity:0;animation:eh-halka 3.6s ease-out infinite}
+@keyframes eh-sallan{0%,100%{transform:rotate(0)}50%{transform:rotate(1.4deg)}}
+@keyframes eh-zy{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+@keyframes eh-damla{0%{transform:translateY(-6px) scale(.2,.2);opacity:0}25%{transform:translateY(0) scale(.9,1);opacity:1}45%{transform:translateY(4px) scale(.85,1.25)}50%{transform:translateY(8px) scale(1,1);opacity:1}88%{transform:translateY(228px) scale(.95,1.15);opacity:1}90%,100%{transform:translateY(236px) scale(1.4,.2);opacity:0}}
+@keyframes eh-halka{0%,88%{opacity:0;transform:scale(.3)}90%{opacity:1;transform:scale(.6)}100%{opacity:0;transform:scale(5)}}
+@media(max-width:860px){.erken-hasat .izgara{grid-template-columns:1fr}.eh-gorsel{max-width:440px;margin:0 auto;width:100%}}
+@media(prefers-reduced-motion:reduce){.eh-dal,.eh-dal .zy1,.eh-damla,.eh-halka{animation:none}}
