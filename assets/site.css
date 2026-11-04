@@ -487,3 +487,4 @@ body::after{background:url(arka-dal.svg) 0 0/420px 420px repeat;opacity:.9;anima
 .eh2-serit-bas{display:block}.eh2-serit-bas .ust{margin-bottom:1em}
 /* Telefonda dönen logo halkası yazılara binmesin (Mehmet 04.11.2026) */
 @media(max-width:700px){.hero{align-items:flex-start;height:auto;min-height:100svh;padding:0 0 110px}.hero-ic{margin-top:0;padding-top:222px}}
+@media(max-width:380px){.menu .logo{font-size:1rem}}
