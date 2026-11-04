@@ -418,3 +418,70 @@ body::after{background:url(arka-dal.svg) 0 0/420px 420px repeat;opacity:.9;anima
 @media(max-width:860px){.eh-kartlar{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:36px}.eh-kartlar figure{scroll-snap-align:start}}
 @media(max-width:860px){.videolar{grid-template-columns:1fr;max-width:420px}.mevsim:nth-child(n){margin-top:30px}}
 .mevsim:nth-child(3){margin-top:clamp(20px,5vw,70px)}
+
+/* ===== Erken Hasat v3 — sinematik ===== */
+.eh2{position:relative;overflow:clip}
+.eh2-sahne{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.eh2-arka{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:blur(5px) saturate(1.15) brightness(.8);transform:scale(1.05);animation:eh2-nefes 16s ease-in-out infinite alternate}
+@keyframes eh2-nefes{to{transform:scale(1.14) translate(-1.5%,-1%)}}
+.eh2-perde{position:absolute;inset:0;background:radial-gradient(80% 70% at 50% 45%,rgba(11,13,7,.35),rgba(11,13,7,.85) 75%),linear-gradient(180deg,rgba(11,13,7,.6),transparent 30%,transparent 70%,var(--gece))}
+.eh2-sahne-ic{position:relative;z-index:2;text-align:center;padding-block:120px 80px}
+.eh2-rozet{display:inline-flex;align-items:center;gap:.6em;padding:.5em 1.1em;border-radius:999px;background:rgba(201,214,90,.16);box-shadow:0 0 0 1px rgba(201,214,90,.5) inset;color:#e4ecb0;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.eh2-rozet i{width:9px;height:9px;border-radius:50%;background:#c9d65a;animation:eh-nabiz 1.8s infinite}
+.eh2-baslik{font-size:clamp(4rem,15vw,15rem);line-height:.9;margin:.15em 0 0;text-shadow:0 20px 80px rgba(0,0,0,.6)}
+.eh2-baslik em{font-style:italic}
+.eh2-baslik em .kelime>span,.eh2-baslik em{background:linear-gradient(100deg,#8fa93a 0%,#e9e27a 28%,#fff6cf 45%,#e6ad35 62%,#8fa93a 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:parilti 6s ease-in-out infinite;padding:.1em .12em .26em 0;margin:-.1em -.12em -.26em 0}
+.eh2-yil{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.4rem);letter-spacing:.6em;color:#c9d65a;margin:.2em 0 .6em;padding-left:.6em}
+.eh2-giris{font-family:var(--serif);font-size:clamp(1.2rem,2.3vw,1.85rem);line-height:1.4;max-width:36ch;margin:0 auto;color:var(--krem);text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.eh2-asagi{display:inline-flex;flex-direction:column;align-items:center;gap:10px;margin-top:2.4em;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:#e4ecb0;text-decoration:none}
+.eh2-asagi i{width:1px;height:46px;background:linear-gradient(#c9d65a,transparent);animation:eh2-in 1.8s ease-in-out infinite}
+@keyframes eh2-in{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.eh2-izgara{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center;padding-block:clamp(80px,10vw,150px)}
+.eh2-alt{font-size:clamp(2.4rem,6vw,5.2rem);margin-bottom:.5em}
+.eh2-alt em{font-style:italic;color:#c9d65a}
+.eh2-adimlar{list-style:none;display:grid;gap:16px;margin:1.6em 0 2.2em}
+.eh2-adimlar li{display:flex;gap:18px;align-items:flex-start;padding:20px 22px;border-radius:20px;background:linear-gradient(135deg,rgba(201,214,90,.09),rgba(243,236,217,.03));box-shadow:0 0 0 1px rgba(201,214,90,.18) inset;transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s,background .5s}
+.eh2-adimlar li:hover{transform:translateX(10px) scale(1.01);background:linear-gradient(135deg,rgba(201,214,90,.18),rgba(230,173,53,.06));box-shadow:0 0 0 1px rgba(201,214,90,.6) inset,0 24px 60px -28px rgba(201,214,90,.7)}
+.eh2-adimlar b{display:grid;place-items:center;min-width:2.6em;height:2.6em;border-radius:50%;background:#c9d65a;color:var(--gece);font-family:var(--serif);font-weight:600}
+.eh2-adimlar h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.3rem,2vw,1.6rem);line-height:1.15;margin-bottom:.25em}
+.eh2-adimlar p{color:var(--soluk)}
+.eh2-cerceve{position:relative;max-width:420px;width:100%;margin:0 auto;perspective:900px}
+.eh2-halo{position:absolute;inset:-18%;border-radius:50%;background:conic-gradient(from 0deg,rgba(201,214,90,.0),rgba(201,214,90,.45),rgba(230,173,53,.35),rgba(201,214,90,0) 60%);filter:blur(40px);animation:eh2-don 14s linear infinite}
+@keyframes eh2-don{to{transform:rotate(360deg)}}
+.eh2-video{position:relative;aspect-ratio:9/16;border-radius:30px;overflow:hidden;box-shadow:0 0 0 1px rgba(201,214,90,.5),0 60px 140px -40px rgba(0,0,0,.9);transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:transform .25s ease-out}
+.eh2-video::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%);pointer-events:none}
+.eh2-video video{width:100%;height:100%;object-fit:cover;background:#111}
+.eh2-cerceve .etiket{top:7%;left:-6%}
+.eh2-damga{position:absolute;right:-12%;bottom:6%;width:clamp(110px,12vw,150px);aspect-ratio:1;border-radius:50%;background:rgba(11,13,7,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(201,214,90,.4)}
+.eh2-damga svg{width:100%;height:100%;animation:don 20s linear infinite}
+.eh2-damga text{font-size:13px;letter-spacing:3px;text-transform:uppercase;fill:#e4ecb0;font-weight:600}
+.eh2-bant{background:linear-gradient(90deg,#7f9a2e,#c9d65a,#a7bf4a);color:#141a05;transform:rotate(1.6deg) scale(1.05);overflow:hidden;box-shadow:0 20px 60px -20px rgba(201,214,90,.6)}
+.eh2-bant .akis{display:flex;width:max-content;animation:akis 30s linear infinite reverse}
+.eh2-bant span{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3.4vw,2.8rem);padding:.25em .6em;white-space:nowrap;display:flex;align-items:center;gap:.9em}
+.eh2-bant span::after{content:"";width:.45em;height:.6em;background:currentColor;border-radius:50%/60% 60% 40% 40%;opacity:.7}
+.eh2-serit{padding-block:clamp(80px,10vw,140px)}
+.eh2-serit-bas{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px;margin-bottom:clamp(30px,4vw,50px)}
+.eh2-serit-bas .ust{margin:0}
+.eh2-kartlar{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,22px);align-items:start}
+.eh2-kartlar figure{position:relative;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 0 0 1px rgba(201,214,90,.25);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s}
+.eh2-kartlar figure:nth-child(even){margin-top:46px}
+.eh2-kartlar figure:hover{transform:scale(1.06) translateY(-8px);z-index:2;box-shadow:0 0 0 1px rgba(201,214,90,.8),0 40px 80px -30px rgba(201,214,90,.7)}
+.eh2-kartlar video{width:100%;height:100%;object-fit:cover;background:#111;transition:transform 1.2s}
+.eh2-kartlar figure:hover video{transform:scale(1.08)}
+.eh2-kartlar figcaption{position:absolute;left:0;right:0;bottom:0;padding:50px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-family:var(--serif);font-size:clamp(1rem,1.4vw,1.25rem);display:flex;gap:.5em;align-items:baseline}
+.eh2-kartlar figcaption span{font-family:var(--sans);font-size:.72rem;color:#c9d65a;letter-spacing:.1em}
+.eh2-hikaye{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden}
+.eh2-hikaye-ic{position:relative;z-index:2;padding-block:120px}
+.eh2-hikaye .ust{color:#c9d65a}
+.eh2-hikaye blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3vw,2.5rem);line-height:1.4;max-width:30ch;text-shadow:0 6px 40px rgba(0,0,0,.8)}
+@media(max-width:860px){
+  .eh2-izgara{grid-template-columns:1fr}
+  .eh2-cerceve{max-width:320px}
+  .eh2-damga{right:-6%}
+  .eh2-cerceve .etiket{left:-2%}
+  .eh2-kartlar{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:56%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:20px}
+  .eh2-kartlar figure{scroll-snap-align:start}
+  .eh2-kartlar figure:nth-child(even){margin-top:0}
+}
+@media(prefers-reduced-motion:reduce){.eh2-arka,.eh2-halo,.eh2-damga svg,.eh2-bant .akis,.eh2-asagi i{animation:none}}
+.eh2-serit-bas{display:block}.eh2-serit-bas .ust{margin-bottom:1em}

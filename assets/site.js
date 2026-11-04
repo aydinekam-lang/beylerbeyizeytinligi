@@ -249,3 +249,8 @@
   }
   hazir();
 })();
+
+// Erken hasat: video çerçevesi fareyle hafif eğilir
+(function(){const c=document.querySelector('[data-egim]'); if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches) return; const v=c.querySelector('.eh2-video');
+c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; v.style.setProperty('--ry',(x*14)+'deg'); v.style.setProperty('--rx',(-y*10)+'deg');});
+c.addEventListener('pointerleave',()=>{v.style.setProperty('--ry','0deg'); v.style.setProperty('--rx','0deg');});})();
