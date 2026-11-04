@@ -14,7 +14,7 @@
   const N = 64, PK = 48, NT = 8;
   const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   const fs = `precision highp float;
-uniform vec4 B[${N}];uniform vec4 T[${NT}];uniform vec4 U[${NT}];uniform float P[${PK}];uniform vec2 R;uniform float S;uniform float Z;
+uniform vec4 B[${N}];uniform vec4 T[${NT}];uniform vec4 U[${NT}];uniform float P[${PK}];uniform vec2 R;uniform float S;uniform float Z;uniform vec2 Y;
 void main(){
   vec2 q=vec2(gl_FragCoord.x,R.y-gl_FragCoord.y);
   float f=0.;vec2 g=vec2(0.);
@@ -39,13 +39,13 @@ void main(){
     if(abs(u)<1.)dh-=P[j]*sign(u);
   }
   dh*=${PK - 1}./R.x;
-  float k=7.*S;float s=(q.y-(R.y-h))/k;float fp=exp(clamp(s,-12.,4.));
-  f+=fp;g.y+=fp/k;g.x+=fp*dh/k;
+  float k=5.*S;float s=(q.y-(Y.x+Y.y*q.x-h))/k;float fp=exp(clamp(s,-12.,4.));
+  f+=fp;g.y+=fp/k;g.x+=fp*(dh-Y.y)/k;
   float gn=max(length(g),1e-4);
   float sd=(f-1.)/gn;
   float a=clamp(sd+.5,0.,1.);
   float hale=sd<0.?exp(sd/(5.*S))*.16:0.;
-  if(a<=0.){gl_FragColor=vec4(vec3(.9,.66,.2)*hale,hale);return;}
+  if(a<=0.){gl_FragColor=vec4(vec3(.85,.82,.25)*hale,hale);return;}
   float th=clamp(sd/(9.*S),0.,1.);
   vec3 n=normalize(vec3(-g/f*5.,1.));
   vec3 L=normalize(vec3(-.45,-.7,.55));
@@ -56,9 +56,9 @@ void main(){
   float rim=pow(1.-n.z,2.);
   vec2 nl=n.xy/max(length(n.xy),1e-4);
   float kos=pow(clamp(dot(nl,-normalize(L.xy)),0.,1.),2.)*(1.-n.z)*smoothstep(.15,.8,th);
-  vec3 ince=vec3(.98,.86,.36),kalin=vec3(.40,.33,.03);
+  vec3 ince=vec3(.97,.94,.42),kalin=vec3(.66,.64,.07);
   vec3 c=mix(ince,kalin,th);
-  vec3 col=c*(.30+.70*dif)+vec3(1.,.82,.35)*kos*.75+vec3(.95,.86,.5)*rim*.18+vec3(1.)*sp2*.18;
+  vec3 col=c*(.52+.55*dif)+vec3(1.,.96,.5)*kos*.8+vec3(.95,.86,.5)*rim*.18+vec3(1.)*sp2*.18;
   float al=a*mix(.8,.97,th)+rim*.1*a;
   al=clamp(al,0.,1.);
   vec3 pre=col*al+vec3(1.,.98,.92)*sp*a*1.1;
@@ -75,13 +75,13 @@ void main(){
   const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
   const ap = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(ap); gl.vertexAttribPointer(ap, 2, gl.FLOAT, false, 0, 0);
-  const uB = gl.getUniformLocation(pr, 'B'), uT = gl.getUniformLocation(pr, 'T'), uU = gl.getUniformLocation(pr, 'U'), uZ = gl.getUniformLocation(pr, 'Z'), uP = gl.getUniformLocation(pr, 'P'),
+  const uB = gl.getUniformLocation(pr, 'B'), uT = gl.getUniformLocation(pr, 'T'), uU = gl.getUniformLocation(pr, 'U'), uZ = gl.getUniformLocation(pr, 'Z'), uY = gl.getUniformLocation(pr, 'Y'), uP = gl.getUniformLocation(pr, 'P'),
         uR = gl.getUniformLocation(pr, 'R'), uS = gl.getUniformLocation(pr, 'S');
   const TA = new Float32Array(NT * 4), UA = new Float32Array(NT * 4), BA = new Float32Array(N * 4), PA = new Float32Array(PK);
 
   const rnd = (a, b) => a + Math.random() * (b - a);
   const G = 420;
-  let W, H, S, mobil, kaynak = [], dusen = [], akis = [], havuz, hiz, taban, zaman = 0;
+  let zeminY0 = 0, zeminEgim = 0, W, H, S, mobil, kaynak = [], dusen = [], akis = [], havuz, hiz, taban, zaman = 0;
 
   function yeniKaynak(s) { s.faz = 'buyu'; s.r = rnd(4, 6); s.max = rnd(9, 13) * (mobil ? .85 : 1);
     s.dy = 0; s.vy = 0; s.kop = rnd(60, 150); s.bekle = rnd(.2, 2.5); }
@@ -95,12 +95,23 @@ void main(){
     const xs = mobil ? [.12, .5, .9] : [.05, .19, .43, .69, .96];
     kaynak = xs.map(x => { const s = { x: W * x + rnd(-15, 15) }; yeniKaynak(s); s.bekle = rnd(0, 1.5); return s; });
     akis = mobil ? [] : [{ x0: W * .975, r0: 3.4 }];
-    taban = mobil ? 10 : 15;
+    taban = mobil ? 4 : 6;
+    zeminY0 = H; zeminEgim = 0;
+    const bant = hero.nextElementSibling;
+    if (bant && bant.classList.contains('bant')) {
+      const m = new DOMMatrix(getComputedStyle(bant).transform);
+      const br = bant.getBoundingClientRect(), cx = br.left + br.width / 2 - r.left, cy = br.top + br.height / 2 - r.top;
+      const w2 = bant.offsetWidth / 2, h2 = bant.offsetHeight / 2;
+      const sol = { x: cx - m.a * w2 - m.c * h2, y: cy - m.b * w2 - m.d * h2 };
+      const sag = { x: cx + m.a * w2 - m.c * h2, y: cy + m.b * w2 - m.d * h2 };
+      zeminEgim = (sag.y - sol.y) / (sag.x - sol.x);
+      zeminY0 = sol.y - zeminEgim * sol.x + 1;
+    }
     havuz = new Float32Array(PK).fill(taban); hiz = new Float32Array(PK);
     dusen = [];
   }
 
-  function vur(x, guc) {
+  function vur(x, guc) { guc *= 1.2;
     const fx = x / W * (PK - 1);
     for (let j = 0; j < PK; j++) { const d = j - fx; havuz[j] += guc * Math.exp(-d * d / 1.2); }
   }
@@ -118,10 +129,10 @@ void main(){
     }
     for (const d of dusen) {
       d.vy = Math.min(d.vy + G * dt, 520); d.y += d.vy * dt;
-      const zemin = H - (havuz[Math.round(d.x / W * (PK - 1))] || taban);
+      const zemin = zeminY0 + zeminEgim * d.x - (havuz[Math.max(0, Math.min(PK - 1, Math.round(d.x / W * (PK - 1))))] || taban);
       if (d.y > zemin - d.r * .3) { d.bitti = true; vur(d.x, d.r * (d.k ? .25 : .55));
-        if (!d.k && !mobil) for (let i = 0; i < 2; i++)
-          dusen.push({ x: d.x + rnd(-6, 6), y: zemin - 6, vy: -rnd(70, 130), r: rnd(1.6, 2.6), k: true, vx: rnd(-40, 40) }); }
+        if (!d.k) { const n = mobil ? 2 : 4; for (let i = 0; i < n; i++)
+          dusen.push({ x: d.x + rnd(-4, 4), y: zemin - 5, vy: -rnd(90, 170) * Math.min(1, d.r / 6), r: rnd(1.4, 2.4), k: true, vx: (i % 2 ? 1 : -1) * rnd(25, 70) }); } }
       if (d.vx) d.x += d.vx * dt;
     }
     dusen = dusen.filter(d => !d.bitti).slice(-20);
@@ -132,6 +143,10 @@ void main(){
       hiz[j] += ((l + rr - 2 * havuz[j]) * 9 - hiz[j] * 1.6 - (havuz[j] - taban) * .8) * dt;
     }
     for (let j = 0; j < PK; j++) havuz[j] += hiz[j] * dt * 6;
+    const yon = zeminEgim > 0 ? 1 : -1, akma = Math.min(.9, Math.abs(zeminEgim) * 25) * dt;
+    if (yon < 0) for (let j = 0; j < PK - 1; j++) { const fz = Math.max(0, havuz[j + 1] - taban) * akma; havuz[j + 1] -= fz; havuz[j] += fz; }
+    else for (let j = PK - 1; j > 0; j--) { const fz = Math.max(0, havuz[j - 1] - taban) * akma; havuz[j - 1] -= fz; havuz[j] += fz; }
+    for (let j = 0; j < PK; j++) havuz[j] = Math.min(havuz[j], 26);
   }
 
   function doldur() {
@@ -152,7 +167,7 @@ void main(){
       if (d.k) top(d.x, d.y, d.r);
       else { top(d.x, d.y, d.r); top(d.x, d.y - uz * .5, d.r * .7); top(d.x, d.y - uz, d.r * .4); }
     }
-    for (const a of akis) ip(a.x0, -4, H - taban + 6, a.r0, a.r0 * .72, 2.5, 0, .14);
+    for (const a of akis) ip(a.x0, -4, zeminY0 + zeminEgim * a.x0 + 2, a.r0, a.r0 * .72, 2.5, 0, .14);
     for (; i < N; i++) BA[i * 4 + 2] = 0;
     for (; t < NT; t++) TA[t * 4 + 3] = 0;
     for (let j = 0; j < PK; j++) PA[j] = havuz[j] * S;
@@ -160,7 +175,7 @@ void main(){
 
   function ciz() {
     doldur();
-    gl.uniform4fv(uB, BA); gl.uniform4fv(uT, TA); gl.uniform4fv(uU, UA); gl.uniform1f(uZ, zaman); gl.uniform1fv(uP, PA);
+    gl.uniform4fv(uB, BA); gl.uniform4fv(uT, TA); gl.uniform4fv(uU, UA); gl.uniform1f(uZ, zaman); gl.uniform2f(uY, zeminY0 * S, zeminEgim); gl.uniform1fv(uP, PA);
     gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uS, S);
     gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
